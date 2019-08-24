@@ -1,4 +1,4 @@
-#Pivko Franchise Invest
+# Pivko Franchise Invest
 
 Для установки запустить:
 `npm install`
