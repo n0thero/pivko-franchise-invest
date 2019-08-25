@@ -2,7 +2,6 @@ html, body {
 	height: 100%;
 	width: 100%;
 	min-height: 100%;
-	/*min-width: 100%;*/
 	min-width: 1206px;
 	padding: 0;
 	margin: 0;
@@ -26,7 +25,9 @@ body {
 	src: url("../fonts/Inter-Regular.ttf") format('truetype');
 }
 
-/* ================= */
+p, h2 {
+	margin: 0;
+}
 
 button {
 	border: none;
@@ -36,7 +37,10 @@ button {
 .btn {
 	border-radius: 100px;
 	background-color: #ffdf11;
-	padding: 13px 23px;
+	padding: 12px 21px;
+	top: -7px;
+	font-size: 15px;
+	font-weight: 600;
 }
 
 .container {
@@ -49,6 +53,32 @@ a {
 	color: inherit;
 }
 
+#overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 9000px;
+	opacity: .2;
+	background-position: top center;
+	background-image: url("../img/pixel.png");
+	background-repeat: no-repeat;
+}
+
+#toggle-overlay {
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+	padding: 30px 50px;
+	font-size: 20px;
+	opacity: .8;
+	border-radius: 20px;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}
+
+
 /* ================= */
 
 .main-site-link {
@@ -57,43 +87,54 @@ a {
 	background-position: top center;
 	background-size: auto 100%;
 	background-repeat: no-repeat;
-	height: 50px;
+	height: 60px;
 }
 
 .main-site-link .x-title {
 	position: absolute;
-	top: 15px;
-	left: 300px;
+	top: 20px;
+	left: 327px;
+	font-size: 18px;
 }
 
 .main-site-link .btn {
 	position: absolute;
-	top: 5px;
-	right: 200px;
+	top: 12px;
+	right: 326px;
+	background: none;
+	border: 2px solid gray;
+	padding: 7px 19px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: -0.32px;
+	color: #434343;
 }
 
 header {
 	display: flex;
 	flex-direction: row;
-	min-height: 60px;
+	min-height: 70px;
 	background-color: #FCFCFC;
 }
 
 .logo {
 	top: 10px;
-	max-width: 100px;
-	margin-right: 20px;
+	max-width: 135px;
+	margin-right: 72px;
+	left: 31px;
 }
 
 header .x-links {
 	display: inline-flex;
 	flex-direction: row;
 	max-width: 700px;
-	margin-right: 200px;
+	margin-right: 265px;
+	top: -5px;
 }
 
 header .x-link {
-	margin-right: 20px;
+	margin-right: 27px;
 }
 
 .first-screen {
@@ -105,14 +146,14 @@ header .x-link {
 	flex-direction: column;
 	min-height: 614px;
 	justify-content: center;
-	padding-bottom: 20px;
+	padding: 15px 32px 20px;
 	overflow: visible;
 }
 
 .first-screen .x-bg {
 	position: absolute;
 	top: 0;
-	right: -100px;
+	right: -138px;
 	width: calc(100% + 200px);
 	height: 100%;
 	background-image: url("../img/fs_bg.png");
@@ -129,7 +170,7 @@ header .x-link {
 
 .first-screen p {
 	font-size: 18px;
-	margin: 0 0 50px;
+	margin: 0 0 60px;
 	color: #444444;
 }
 
@@ -137,6 +178,8 @@ header .x-link {
 	border: 1px solid #444444;
 	background-color: rgba(0, 0, 0, 0);
 	font-size: 16px;
+	padding: 14px 27px;
+	color: #434343;
 }
 
 .main-props {
@@ -144,10 +187,12 @@ header .x-link {
 }
 
 .main-props .container {
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, .1) 10px 10px 30px;
-	top: -50px;
-	padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.07);
+	background-color: #ffffff;
+	top: -74px;
+	padding: 6px;
+	left: -14px;
 }
 
 .main-props .x-props {
@@ -155,8 +200,8 @@ header .x-link {
 	flex-direction: row;
 	justify-content: space-between;
 	list-style: none;
-	padding: 0 55px;
-	
+	padding: 48px 38px 48px 69px;
+	margin: 0;
 }
 
 .main-props .x-icon-wrap {
@@ -165,7 +210,7 @@ header .x-link {
 	width: 72px;
 	height: 72px;
 	background-color: #f0f0f0;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 .main-props .x-icon {
@@ -191,19 +236,18 @@ header .x-link {
 }
 
 .map .container {
-	padding-top: 240px;
-	padding-bottom: 160px;
+	padding: 165px 0 138px 31px;
 }
 
 .map .x-bg {
 	position: absolute;
-	top: 0;
-	right: -100px;
+	top: -68px;
+	right: -443px;
 	width: 100%;
 	height: 100%;
 	background-image: url("../img/map.svg");
 	background-repeat: no-repeat;
-	background-position: calc(100% + 330px) 90px;
+	background-position: 0 90px;
 }
 
 .map .x-title {
@@ -216,6 +260,11 @@ header .x-link {
 }
 
 .map .x-props-inline {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: -0.2px;
+	color: #656565;
 	margin-bottom: 82px;
 }
 
@@ -224,7 +273,7 @@ header .x-link {
 }
 
 .map .achievement-element {
-	margin-right: 10px;
+	margin-right: 28px;
 }
 
 .franchise-invest {
@@ -262,8 +311,9 @@ header .x-link {
 
 .risks {
 	margin-top: -80px;
-	padding-top: 205px;
+	padding-top: 157px;
 	background-color: #f0f0f0;
+	padding-left: 61px;
 }
 
 .risks h2 {
@@ -272,11 +322,11 @@ header .x-link {
 	color: #262626;
 	font-size: 42px;
 	font-weight: 600;
-	margin-bottom: 30px;
+	margin: 35px 0 30px;
 }
 
 .risks p {
-	margin-bottom: 60px;
+	margin-bottom: 55px;
 	line-height: 1.4;
 	letter-spacing: -0.18px;
 	color: #656565;
@@ -288,6 +338,7 @@ header .x-link {
 	display: inline-flex;
 	padding-left: 0;
 	list-style: none;
+	margin: 0;
 }
 
 .risks-slider {
@@ -295,10 +346,10 @@ header .x-link {
 }
 
 .risks-slider .x-tabs-line {
-	padding: 10px 0;
 	line-height: 1.15;
 	letter-spacing: -0.14px;
 	color: #82848c;
+	margin-bottom: 36px;
 }
 
 .risks-slider .x-tabs-line .x-tabs-wrap {
@@ -312,11 +363,16 @@ header .x-link {
 
 .risks-slider .x-tabs-line .x-tabs-elem {
 	margin-right: 32px;
-	padding: 20px 0;
+	padding: 18px 0;
 }
 
 .risks-slider .x-tabs-line .btn {
-
+	position: absolute;
+	top: 5px;
+	right: 61px;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 15px 24px;
 }
 
 .risks-slider .x-variant .x-tab-body {
@@ -416,6 +472,10 @@ header .x-link {
 	padding-top: 80px;
 }
 
+.main-info .container {
+	padding: 0 31px;
+}
+
 .main-info .x-part-first {
 	display: inline-flex;
 }
@@ -435,6 +495,7 @@ header .x-link {
 	line-height: 1.2;
 	letter-spacing: -0.42px;
 	color: #262626;
+	margin: 0 0 40px;
 }
 
 .main-info .fixed-sidebar-wrap .x-subheader {
@@ -452,7 +513,7 @@ header .x-link {
 }
 
 .main-info .fixed-sidebar-wrap p:not(:last-child) {
-	margin-bottom: 25px;
+	margin-bottom: 22px;
 }
 
 .main-info .main-info-body {
@@ -464,19 +525,25 @@ header .x-link {
 }
 
 .main-info .x-part-first img {
-	margin-bottom: 32px;
+	margin-bottom: 30px;
+	height: 500px;
+	width: auto;
 }
 
 .main-info .x-part-first p {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 500;
 	line-height: 1.4;
 	letter-spacing: -0.18px;
 	color: #656565;
 }
 
+.main-info .main-info-body p {
+	font-size: 18px;
+}
+
 .main-info .x-part-first .x-body ~ img {
-	margin-top: 80px;
+	margin-top: 83px;
 }
 
 .main-info .x-part-first h3 {
@@ -498,7 +565,9 @@ header .x-link {
 }
 
 .main-info .x-part-second .x-image {
-	margin-bottom: 30px;
+	margin-bottom: 3px;
+	max-height: 350px;
+	width: 100%;
 }
 
 .main-info .x-part-second h3 {
@@ -524,4 +593,213 @@ header .x-link {
 
 .already-invested {
 	padding-top: 20px;
+	margin-bottom: 120px;
 }
+
+.already-invested .container {
+	padding: 0 30px;
+}
+
+.already-invested h2 {
+	font-size: 42px;
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: -0.42px;
+	color: #262626;
+	margin-bottom: 40px;
+}
+
+.already-invested .btn {
+	position: absolute;
+	top: 50px;
+	right: 32px;
+	padding: 12px 26px;
+}
+
+.already-invested .x-elements {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	padding-left: 0;
+}
+
+.already-invested .x-element {
+	border-radius: 4px;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.07);
+	background-color: #ffffff;
+	width: calc((100% - 60px) / 3);
+}
+
+.already-invested .x-img-wrap {
+	height: 220px;
+	overflow: hidden;
+}
+
+.already-invested .x-img-wrap img {
+	width: 100%;
+}
+
+.already-invested .x-content-wrap {
+	padding: 30px;
+}
+
+.already-invested .x-content-wrap .x-title-label {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: -0.18px;
+	color: #656565;
+}
+
+.already-invested .x-content-wrap .x-title-value {
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1.4;
+	letter-spacing: -0.24px;
+	color: #262626;
+	margin-bottom: 15px;
+}
+
+.already-invested .x-content-wrap .x-body {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: -0.18px;
+	color: #262626;
+	margin-bottom: 30px;
+}
+
+.already-invested .x-content-wrap .x-address {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: -0.16px;
+	color: #656565;
+}
+
+.investing-form {
+	padding-top: 20px;
+	margin-bottom: 60px;
+}
+
+.investing-form .x-form-wrap {
+	width: 950px;
+	padding: 70px 196px 65px;
+	margin: 0 auto;
+	border-radius: 4px;
+	box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.07);
+	background-color: #ffffff;
+	text-align: center;
+}
+
+.investing-form .x-form-title {
+	font-size: 42px;
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: -0.42px;
+	color: #262626;
+	margin-bottom: 20px;
+}
+
+.investing-form .x-form-subheader {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.4;
+	letter-spacing: -0.18px;
+	color: #656565;
+	margin-bottom: 40px;
+}
+
+.investing-form input {
+	display: block;
+	width: 100%;
+	border-radius: 30px;
+	border: solid 2px #dedede;
+	background-color: #ffffff;
+	font-family: inherit;
+	outline: none;
+	padding: 13px 30px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.investing-form .x-submit {
+	margin: 228px auto 33px;
+	padding: 15px 40px;
+}
+
+.investing-form .x-form-policy-wrap {
+	font-size: 14px;
+	color: #82848c;
+}
+
+.investing-form .policy-link {
+	text-decoration: underline;
+}
+
+.investing-form .x-sum-slider-wrap {
+	position: absolute;
+	top: 513px;
+	text-align: left;
+}
+
+.investing-form .x-sum-slider-wrap .x-title {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.36px;
+	color: #656565;
+	margin-bottom: 4px;
+}
+
+.investing-form .x-sum-slider-wrap .x-sum {
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: -0.72px;
+	color: #434343;
+}
+
+footer {
+	padding: 20px 0 30px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.38;
+	letter-spacing: -0.32px;
+	color: #979797;
+}
+
+footer .container {
+	padding: 0 30px;
+}
+
+footer .container > .x-first {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid #c4c4c4;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+footer .container > .x-second {
+	display: flex;
+	justify-content: space-between;
+}
+
+footer .x-phone {
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: -0.72px;
+	color: #434343;
+	margin-bottom: 10px;
+}
+
+footer .x-policy {
+	text-decoration: underline;
+}
+
+
+
