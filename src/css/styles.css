@@ -1,13 +1,14 @@
 html, body {
-	height: 100%;
 	width: 100%;
 	min-height: 100%;
-	min-width: 1206px;
 	padding: 0;
 	margin: 0;
 }
 
 body {
+	min-width: 1206px;
+	max-width: 1920px;
+	overflow-x: hidden;
 	font-family: 'Inter', sans-serif;
 	color: black;
 	background-color: #FCFCFC;
@@ -32,6 +33,7 @@ p, h2 {
 button {
 	border: none;
 	outline: none;
+	cursor: pointer;
 }
 
 .btn {
@@ -41,6 +43,29 @@ button {
 	top: -7px;
 	font-size: 15px;
 	font-weight: 600;
+	cursor: pointer;
+}
+
+.orange-btn:hover,
+.orange-btn:focus {
+	background-color: #ffd111;
+}
+
+.orange-btn:active {
+	background-color: #ffbf00;
+}
+
+.gray-btn:hover,
+.gray-btn:focus {
+	background-color: #434343 !important;
+	color: white !important;
+	border-color: #434343 !important;
+}
+
+.gray-btn:active {
+	background-color: #1c1c1c !important;
+	color: white !important;
+	border-color: #1c1c1c !important;
 }
 
 .container {
@@ -51,6 +76,19 @@ button {
 a {
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
+}
+
+a.anchor {
+	top: -80px;
+}
+
+a.x-decorated {
+	text-decoration: underline;
+}
+
+a.x-decorated:hover {
+	color: #4393f9;
 }
 
 #overlay {
@@ -78,9 +116,6 @@ a {
 	cursor: pointer;
 }
 
-
-/* ================= */
-
 .main-site-link {
 	background-color: #DFDFDF;
 	background-image: url("../img/header-link.svg");
@@ -88,6 +123,12 @@ a {
 	background-size: auto 100%;
 	background-repeat: no-repeat;
 	height: 60px;
+	cursor: pointer;
+	margin-bottom: 70px;
+}
+
+.main-site-link .container {
+	min-height: 100%;
 }
 
 .main-site-link .x-title {
@@ -102,7 +143,7 @@ a {
 	top: 12px;
 	right: 326px;
 	background: none;
-	border: 2px solid gray;
+	border: 1px solid #434343;
 	padding: 7px 19px;
 	font-size: 16px;
 	font-weight: 600;
@@ -112,10 +153,19 @@ a {
 }
 
 header {
+	position: fixed;
+	top: 60px;
+	left: 0;
 	display: flex;
 	flex-direction: row;
-	min-height: 70px;
+	height: 70px;
+	width: 100%;
 	background-color: #FCFCFC;
+	z-index: 100;
+}
+
+header.x-in-scroll .x-link {
+	color: rgb(191, 191, 191);
 }
 
 .logo {
@@ -129,12 +179,16 @@ header .x-links {
 	display: inline-flex;
 	flex-direction: row;
 	max-width: 700px;
-	margin-right: 265px;
+	margin-right: 185px;
 	top: -5px;
 }
 
 header .x-link {
 	margin-right: 27px;
+}
+
+header .x-link.x-active {
+	color: red;
 }
 
 .first-screen {
@@ -184,6 +238,10 @@ header .x-link {
 
 .main-props {
 	margin-bottom: 30px;
+}
+
+.main-props a.anchor {
+	top: -160px;
 }
 
 .main-props .container {
@@ -250,7 +308,7 @@ header .x-link {
 	background-position: 0 90px;
 }
 
-.map .x-title {
+.map .container > .x-title {
 	font-size: 42px;
 	font-weight: 600;
 	line-height: 1.15;
@@ -270,10 +328,38 @@ header .x-link {
 
 .achievements-on-map {
 	display: flex;
+	margin-bottom: 30px;
+}
+
+.achievement-description-wrap {
+	width: 392px;
+	height: 135px;
+	padding: 20px 50px 20px 20px;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.12);
+	font-size: 16px;
+}
+
+.achievement-description-wrap .x-title {
+	font-weight: 600;
+	margin-bottom: 15px;
 }
 
 .map .achievement-element {
 	margin-right: 28px;
+}
+
+.map .achievement-element {
+	cursor: pointer;
+}
+
+.map .achievement-element img {
+	width: 44px;
+	height: 64px;
+	transition: all .2s;
+}
+
+.map .achievement-element img:hover {
+	transform: scale(1.3);
 }
 
 .franchise-invest {
@@ -306,7 +392,18 @@ header .x-link {
 	margin: 0 auto;
 	border-radius: 4px;
 	background-color: #F6E049;
+	background-image: url("../img/video-thumb.jpg");
+	background-size: cover;
+	cursor: pointer;
 	z-index: 1;
+}
+
+.franchise-invest .x-video-thumb img {
+	position: absolute;
+	top: calc(50% - 78px);
+	right: calc(50% - 78px);
+	width: 156px;
+	height: 156px;
 }
 
 .risks {
@@ -364,6 +461,10 @@ header .x-link {
 .risks-slider .x-tabs-line .x-tabs-elem {
 	margin-right: 32px;
 	padding: 18px 0;
+}
+
+.risks-slider .x-tabs-line .x-tabs-elem:hover {
+	cursor: pointer;
 }
 
 .risks-slider .x-tabs-line .btn {
@@ -725,6 +826,10 @@ header .x-link {
 	line-height: 1.2;
 }
 
+.investing-form input:focus {
+	border-color: #ffb400;;
+}
+
 .investing-form .x-submit {
 	margin: 228px auto 33px;
 	padding: 15px 40px;
@@ -797,9 +902,6 @@ footer .x-phone {
 	margin-bottom: 10px;
 }
 
-footer .x-policy {
-	text-decoration: underline;
+footer .x-second .x-second {
+	text-align: right;
 }
-
-
-

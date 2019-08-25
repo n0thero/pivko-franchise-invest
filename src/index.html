@@ -2,26 +2,29 @@
 <html>
 <head>
   <title>Пив&Ко</title>
+  <meta charset="UTF-8">
 </head>
 <body>
 
 <div class="main-site-link">
   <div class="container">
     <div class="x-title">Сайт компании Пив&Ко</div>
-    <button class="x-link btn">Перейти</button>
+    <a href="//pivko24.ru"
+       target="_blank"
+       class="x-link btn gray-btn">Перейти</a>
   </div>
 </div>
 
 <header>
   <div class="container">
-    <img src="./img/logo.png" class="logo">
+    <img src="./img/logo.png" class="logo" alt="">
     <div class="x-links">
-      <a href="#" class="x-link">О компании</a>
-      <a href="#" class="x-link">Виды инвестирования</a>
-      <a href="#" class="x-link">О магазинах</a>
-      <a href="#" class="x-link">Отзывы</a>
+      <a href="#about" class="x-link">О компании</a>
+      <a href="#variants" class="x-link">Виды инвестирования</a>
+      <a href="#shops" class="x-link">О магазинах</a>
+      <a href="#already-invested" class="x-link">Уже инвестировали</a>
     </div>
-    <button class="btn link-to-form">Оставить заявку</button>
+    <button class="btn orange-btn link-to-form">Оставить заявку</button>
   </div>
 </header>
 
@@ -43,12 +46,13 @@
         <br>
         бизнеса управляющей компании
       </p>
-      <button class="btn link-to-form">Оставить заявку</button>
+      <button class="btn gray-btn link-to-form">Оставить заявку</button>
     </div>
   </div>
 </section>
 
 <div class="main-props">
+  <a class="anchor" id="about"></a>
   <div class="container">
     <ul class="x-props">
       <li class="x-prop">
@@ -71,7 +75,8 @@
         <div class="x-title">
           Высокий процент
           <br>
-          доходности</div>
+          доходности
+        </div>
         <div class="x-body">
           Чистая прибыль на вложенный
           <br>
@@ -97,7 +102,7 @@
 
 <div class="map">
   <div class="container">
-  
+    
     <div class="x-bg"></div>
     
     <div class="x-title">
@@ -127,7 +132,7 @@
         <img src="img/cherry_inactive.svg" alt="">
       </div>
       <div class="achievement-element">
-        <img src="img/cherry.svg" alt="">
+        <img src="img/top2.svg" alt="">
       </div>
       <div class="achievement-element">
         <img src="img/awards.svg" alt="">
@@ -138,8 +143,16 @@
     </div>
     
     <div class="achievement-description-wrap">
-      <div class="x-title"></div>
-      <div class="x-body"></div>
+      <div class="x-title">
+        Всероссийская
+        <br>
+        франчайзинговая премия
+      </div>
+      <div class="x-body">
+        2 место по количеству голосов среди 10
+        <br>
+        лучших франшиз России
+      </div>
     </div>
   
   </div>
@@ -159,11 +172,14 @@
       «Управляющей компании Пив&Ко». Вы ежемесячно получаете
       чистую прибыль – в среднем 30% годовых.
     </p>
-    <div class="x-video-thumb"></div>
+    <div class="x-video-thumb">
+      <img src="img/play.svg" alt="">
+    </div>
   </div>
 </section>
 
 <section class="risks">
+  <a class="anchor" id="variants"></a>
   <div class="container">
     
     <h2>
@@ -184,7 +200,9 @@
           <div class="x-tabs-elem">50% вложений</div>
           <div class="x-tabs-elem">30% вложений</div>
         </div>
-        <button class="btn risks-tabs-link-to-form">Запросить финансовый расчет</button>
+        <button class="btn orange-btn risks-tabs-link-to-form">
+          Запросить финансовый расчет
+        </button>
       </div>
       
       <div class="x-tabs-body">
@@ -342,6 +360,7 @@
 </section>
 
 <section class="main-info">
+  <a class="anchor" id="shops"></a>
   <div class="container">
     
     <div class="x-part-first">
@@ -468,6 +487,7 @@
 </section>
 
 <section class="already-invested">
+  <a class="anchor" id="already-invested"></a>
   <div class="container">
     
     <h2>
@@ -476,7 +496,7 @@
       инвестировали
     </h2>
     
-    <button class="btn link-to-form">Получить презентацию</button>
+    <button class="btn orange-btn link-to-form">Получить презентацию</button>
     
     <ul class="x-elements">
       
@@ -563,7 +583,7 @@
       <input type="text" name="phone" placeholder="Телефон">
       <input type="email" name="email" placeholder="E-mail">
       <input type="hidden" name="sum">
-      <button class="btn x-submit">Отправить заявку</button>
+      <button class="btn orange-btn x-submit">Отправить заявку</button>
     </form>
     
     <div class="x-sum-slider-wrap">
@@ -577,7 +597,10 @@
     <div class="x-form-policy-wrap">
       Нажимая на кнопку “Отправить заявку” вы соглашаетесь
       <br>
-      на нашу <a href="#" class="policy-link">политику обработки персональных данных</a>
+      на нашу
+      <a href="#" class="policy-link x-decorated">
+        политику обработки персональных данных
+      </a>
     </div>
   
   </div>
@@ -611,7 +634,7 @@
     <div class="x-second">
       <div class="x-first">
         <div class="x-policy">
-          <a href="#">Политика конфиденциальности</a>
+          <a href="#" class="x-decorated">Политика конфиденциальности</a>
         </div>
         <div class="x-rights">
           Все права защищены Пив&Ко©, 2008 — 2019
@@ -621,7 +644,7 @@
         <div class="x-main-site-link">
           Основной сайт компании
           <br>
-          <a href="//pivko24.ru">pivko24.ru</a>
+          <a href="//pivko24.ru" class="x-decorated">pivko24.ru</a>
         </div>
       </div>
     

@@ -1,0 +1,31 @@
+@media screen and (max-width: 1220px) {
+	
+	html {
+		max-width: 100%;
+	}
+	
+	body {
+		overflow: auto;
+	}
+	
+	.container {
+		max-width: 1220px;
+		overflow-x: hidden !important;
+	}
+	
+	.map {
+		overflow-x: hidden;
+	}
+	
+	.risks {
+		padding-left: 20px;
+	}
+	
+	.risks .container {
+		width: calc(100% - 40px);
+	}
+	
+	.risks-slider .x-variant .x-tab-body {
+		width: auto;
+	}
+}
