@@ -24,7 +24,7 @@
       <a href="#shops" class="x-link">О магазинах</a>
       <a href="#already-invested" class="x-link">Уже инвестировали</a>
     </div>
-    <button class="btn orange-btn link-to-form">Оставить заявку</button>
+    <button class="btn orange-btn link-to-form scroll-to-form">Оставить заявку</button>
   </div>
 </header>
 
@@ -46,7 +46,7 @@
         <br>
         бизнеса управляющей компании
       </p>
-      <button class="btn gray-btn link-to-form">Оставить заявку</button>
+      <button class="btn gray-btn link-to-form scroll-to-form">Оставить заявку</button>
     </div>
   </div>
 </section>
@@ -117,28 +117,34 @@
     
     <div class="x-props-inline">
       <span>150 городов</span>
-      <span> | </span>
+      <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
       <span>410 магазинов</span>
     </div>
     
     <div class="achievements-on-map">
-      <div class="achievement-element">
+      <div class="achievement-element"
+           data-achievement-code="top_100">
         <img src="img/top100.svg" alt="">
       </div>
-      <div class="achievement-element">
-        <img src="img/awards.svg" alt="">
+      <div class="achievement-element"
+           data-achievement-code="awards_2018">
+        <img src="img/awards_2018.svg" alt="">
       </div>
-      <div class="achievement-element">
-        <img src="img/cherry_inactive.svg" alt="">
+      <div class="achievement-element"
+           data-achievement-code="cherry_silver">
+        <img src="img/cherry_silver.svg" alt="">
       </div>
-      <div class="achievement-element">
+      <div class="achievement-element"
+           data-achievement-code="top_2">
         <img src="img/top2.svg" alt="">
       </div>
-      <div class="achievement-element">
-        <img src="img/awards.svg" alt="">
+      <div class="achievement-element"
+           data-achievement-code="awards_2017">
+        <img src="img/awards_2017.svg" alt="">
       </div>
-      <div class="achievement-element">
-        <img src="img/cherry.svg" alt="">
+      <div class="achievement-element"
+           data-achievement-code="cherry_gold">
+        <img src="img/cherry_gold.svg" alt="">
       </div>
     </div>
     
@@ -172,9 +178,12 @@
       «Управляющей компании Пив&Ко». Вы ежемесячно получаете
       чистую прибыль – в среднем 30% годовых.
     </p>
-    <div class="x-video-thumb">
+    <a class="x-video-thumb"
+       href="https://www.youtube.com/watch?v=QyZ9zN4cs0U"
+       style="display: block;"
+       data-lity>
       <img src="img/play.svg" alt="">
-    </div>
+    </a>
   </div>
 </section>
 
@@ -200,9 +209,11 @@
           <div class="x-tabs-elem">50% вложений</div>
           <div class="x-tabs-elem">30% вложений</div>
         </div>
-        <button class="btn orange-btn risks-tabs-link-to-form">
+        <a class="btn orange-btn risks-tabs-link-to-form"
+           href="https://www.youtube.com/watch?v=QyZ9zN4cs0U"
+           data-lity>
           Запросить финансовый расчет
-        </button>
+        </a>
       </div>
       
       <div class="x-tabs-body">
@@ -496,7 +507,11 @@
       инвестировали
     </h2>
     
-    <button class="btn orange-btn link-to-form">Получить презентацию</button>
+    <a class="btn orange-btn link-to-form"
+       href="https://www.youtube.com/watch?v=QyZ9zN4cs0U"
+       data-lity>
+      Получить презентацию
+    </a>
     
     <ul class="x-elements">
       
@@ -578,15 +593,40 @@
     </div>
     
     <form>
-      <input type="text" name="name" placeholder="Фамилия Имя Отчество">
-      <input type="text" name="city" placeholder="Город">
-      <input type="text" name="phone" placeholder="Телефон">
-      <input type="email" name="email" placeholder="E-mail">
-      <input type="hidden" name="sum">
-      <button class="btn orange-btn x-submit">Отправить заявку</button>
+      
+      <input type="text"
+             name="name"
+             placeholder="Фамилия Имя Отчество"
+             required>
+      
+      <input type="text"
+             name="city"
+             placeholder="Город"
+             required>
+      
+      <input type="text"
+             name="phone"
+             placeholder="Телефон"
+             required>
+      
+      <input type="email"
+             name="email"
+             placeholder="E-mail"
+             required>
+      
+      <input type="text"
+             name="sum"
+             placeholder="Сумма инвестиций: от 100 000, до 5 000 000 Р"
+             required>
+      
+      <button class="btn orange-btn x-submit"
+              style="margin-top: 20px;">
+        Отправить заявку
+      </button>
+      
     </form>
     
-    <div class="x-sum-slider-wrap">
+    <div class="x-sum-slider-wrap" style="display: none;">
       <div class="x-title">Сумма инвестиций</div>
       <div class="x-sum">
         <span class="x-sum-value">5 000 000</span>
@@ -598,7 +638,9 @@
       Нажимая на кнопку “Отправить заявку” вы соглашаетесь
       <br>
       на нашу
-      <a href="#" class="policy-link x-decorated">
+      <a href="https://franchise-pro.ru/"
+         target="_blank"
+         class="policy-link x-decorated">
         политику обработки персональных данных
       </a>
     </div>
@@ -634,7 +676,9 @@
     <div class="x-second">
       <div class="x-first">
         <div class="x-policy">
-          <a href="#" class="x-decorated">Политика конфиденциальности</a>
+          <a href="https://franchise-pro.ru/"
+             target="_blank"
+             class="x-decorated">Политика конфиденциальности</a>
         </div>
         <div class="x-rights">
           Все права защищены Пив&Ко©, 2008 — 2019
@@ -644,7 +688,9 @@
         <div class="x-main-site-link">
           Основной сайт компании
           <br>
-          <a href="//pivko24.ru" class="x-decorated">pivko24.ru</a>
+          <a href="//pivko24.ru"
+             target="_blank"
+             class="x-decorated">pivko24.ru</a>
         </div>
       </div>
     

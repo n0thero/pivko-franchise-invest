@@ -70,6 +70,8 @@ module.exports = {
       jQuery: 'jquery',
       'window.jquery': 'jquery',
       'window.jQuery': 'jquery',
+      lity: 'lity',
+      'lity': 'lity'
     }
   }
 };

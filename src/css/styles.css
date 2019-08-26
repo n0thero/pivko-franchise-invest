@@ -179,7 +179,6 @@ header .x-links {
 	display: inline-flex;
 	flex-direction: row;
 	max-width: 700px;
-	margin-right: 185px;
 	top: -5px;
 }
 
@@ -189,6 +188,12 @@ header .x-link {
 
 header .x-link.x-active {
 	color: red;
+}
+
+header .btn {
+	position: absolute;
+	right: 0;
+	top: 15px;
 }
 
 .first-screen {
@@ -328,15 +333,18 @@ header .x-link.x-active {
 
 .achievements-on-map {
 	display: flex;
-	margin-bottom: 30px;
+	margin-bottom: 165px;
 }
 
 .achievement-description-wrap {
+	position: absolute;
 	width: 392px;
-	height: 135px;
 	padding: 20px 50px 20px 20px;
 	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.12);
 	font-size: 16px;
+	opacity: 0;
+	top: 585px;
+	transition: all .3s;
 }
 
 .achievement-description-wrap .x-title {
@@ -355,10 +363,12 @@ header .x-link.x-active {
 .map .achievement-element img {
 	width: 44px;
 	height: 64px;
+	opacity: .7;
 	transition: all .2s;
 }
 
 .map .achievement-element img:hover {
+	opacity: 1;
 	transform: scale(1.3);
 }
 
@@ -393,8 +403,10 @@ header .x-link.x-active {
 	border-radius: 4px;
 	background-color: #F6E049;
 	background-image: url("../img/video-thumb.jpg");
-	background-size: cover;
+	background-size: 100% 100%;
+	background-position: center;
 	cursor: pointer;
+	transition: all .6s;
 	z-index: 1;
 }
 
@@ -404,6 +416,15 @@ header .x-link.x-active {
 	right: calc(50% - 78px);
 	width: 156px;
 	height: 156px;
+	transition: all .8s;
+}
+
+.franchise-invest .x-video-thumb:hover {
+	background-size: 110% 110%;
+}
+
+.franchise-invest .x-video-thumb:hover img {
+	transform: scale(1.3);
 }
 
 .risks {
@@ -429,6 +450,10 @@ header .x-link.x-active {
 	color: #656565;
 	font-size: 18px;
 	font-weight: 500;
+}
+
+.risks .orange-btn {
+	color: black;
 }
 
 .risks-tabs-variants ul {
