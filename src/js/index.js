@@ -5,6 +5,8 @@ import './../../node_modules/lity/dist/lity.min.css';
 import $ from 'jquery';
 import lity from 'lity';
 
+window.isMobile = false;
+
 setTimeout(console.clear, 500);
 
 $('#toggle-overlay')
@@ -48,8 +50,10 @@ $('.investing-form form').submit((e) => {
 function handleHeader() {
   
   let $header = $('header'),
-      linkToMainSiteHeight = 60,
+      linkToMainSiteHeight = $('.main-site-link').innerHeight(),
       scrollTop = document.documentElement.scrollTop;
+
+  window.isMobile = window.innerWidth <= 768;
   
   $header
       .addClass('x-in-scroll');
@@ -67,6 +71,8 @@ function handleHeader() {
           .find('.x-link').removeClass('x-active');
     }
   }
+  
+  if (isMobile) return null;
   
   let headerLinksScrollPositions = {
     'about': 0,
@@ -171,6 +177,8 @@ function hideAchievementDescription() {
 }
 
 function handleFixedSidebar() {
+  
+  if (window.isMobile) return null;
   
   let $sidebar = $('.fixed-sidebar-wrap'),
       $mainInfoWrap = $('.main-info'),
