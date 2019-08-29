@@ -7,6 +7,7 @@ import lity from 'lity';
 
 require('webpack-jquery-ui/slider');
 require('webpack-jquery-ui/css');
+require('jquery-ui-touch-punch');
 
 window.isMobile = false;
 
@@ -276,6 +277,8 @@ function initInvestmentsSlider() {
       $investmentsDisplayValue = $('.investments-value'),
       $input = $('input[name = "sum"]');
   
+  // $formSlider.draggable();
+  
   $formSlider.slider({
     range: "min",
     value: 5420000,
@@ -287,5 +290,4 @@ function initInvestmentsSlider() {
       $input.val(localizedSum);
     }
   });
-  
 }

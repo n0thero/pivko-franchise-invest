@@ -33,6 +33,7 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "jquery-ui-touch-punch": "^0.2.3",
     "lity": "^2.4.0",
     "lodash": "^4.17.15",
     "webpack-jquery-ui": "^2.0.1"

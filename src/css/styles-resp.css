@@ -145,7 +145,7 @@
 	
 	.first-screen .container {
 		min-height: auto;
-		overflow: visible;
+		/*overflow: visible;*/
 		justify-content: start;
 		padding: 57px 15px 84px;
 	}
@@ -261,7 +261,7 @@
 	.map .container {
 		min-width: 320px;
 		max-width: 320px;
-		overflow-x: visible !important;
+		/*overflow-x: visible !important;*/
 		padding: 14px 0 30px 0;
 	}
 	
@@ -313,7 +313,7 @@
 	}
 	
 	.risks .container {
-		overflow: visible !important;
+		/*overflow: visible !important;*/
 	}
 	
 	.risks h2 {
@@ -559,7 +559,7 @@
 	
 	.already-invested .container {
 		padding: 0 10px;
-		overflow: visible !important;
+		/*overflow: visible !important;*/
 	}
 	
 	.already-invested .link-to-form {
