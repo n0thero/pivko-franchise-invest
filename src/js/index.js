@@ -61,8 +61,12 @@ $('.investing-form form').submit((e) => {
 
 $('.x-tabs-elem').click((e) => {
   $('.x-tabs-elem').removeClass('x-active');
-  console.log(e.target);
   $(e.target).addClass('x-active');
+});
+
+$('.show-more-main-info').click((e) => {
+  $(e.target).remove();
+  $('.fixed-sidebar .x-body').removeClass('desktop-only');
 });
 
 function handleHeader() {
