@@ -7,7 +7,7 @@ import lity from 'lity';
 
 require('webpack-jquery-ui/slider');
 require('webpack-jquery-ui/css');
-require('jquery-ui-touch-punch');
+// require('jquery-ui-touch-punch');
 
 window.isMobile = false;
 
