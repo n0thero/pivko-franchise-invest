@@ -871,6 +871,7 @@ header .btn {
 	position: absolute;
 	top: 513px;
 	text-align: left;
+	width: calc(100% - 392px);
 }
 
 .investing-form .x-sum-slider-wrap .x-title {
@@ -888,6 +889,42 @@ header .btn {
 	line-height: 1.2;
 	letter-spacing: -0.72px;
 	color: #434343;
+}
+
+.form-slider {
+	margin-top: 20px;
+	background: #f0f0f0 !important;
+	border-radius: 100px !important;
+	height: 20px !important;
+	cursor: pointer;
+	margin-bottom: 15px;
+}
+
+.form-slider span {
+	border-radius: 100px;
+	height: 28px !important;
+	width: 28px !important;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+	background-color: #ffffff !important;
+	cursor: pointer !important;
+}
+
+.form-slider span {
+	border: none !important;
+	outline: none !important;
+}
+
+.x-sum-slider-wrap .x-values {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 14px;
+	font-weight: 600;
+	color: #979797;
+}
+
+.form-slider .ui-slider-range {
+	background: #ffdf11;
 }
 
 footer {

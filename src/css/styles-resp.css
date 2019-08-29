@@ -252,6 +252,12 @@
 		margin-right: 26px;
 	}
 	
+	.achievement-description-wrap {
+		top: 522px;
+		text-align: left;
+		padding: 15px;
+	}
+	
 	.map .container {
 		min-width: 320px;
 		max-width: 320px;
@@ -650,8 +656,8 @@
 		margin-bottom: 23px;
 	}
 	
-	
-	
-	
-	
+	.investing-form .x-sum-slider-wrap {
+		top: 451px;
+		width: calc(100% - 32px);
+	}
 }
