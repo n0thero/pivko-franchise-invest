@@ -2,6 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
+function _path(p) {
+  return path.join(__dirname, p);
+}
+
 module.exports = {
   
   mode: "development",
@@ -54,7 +58,8 @@ module.exports = {
     new CleanWebpackPlugin,
     new HtmlWebpackPlugin({
       title: 'Пив&Ко',
-      template: './src/index.html'
+      template: './src/index.html',
+      favicon: "./src/favicon.ico"
     })
   ],
   output: {
@@ -70,6 +75,10 @@ module.exports = {
       jQuery: 'jquery',
       'window.jquery': 'jquery',
       'window.jQuery': 'jquery',
+      'inputmask.dependencyLib': _path('node_modules/jquery.inputmask/dist/inputmask/inputmask.dependencyLib'),
+      'inputmask' : _path('node_modules/jquery.inputmask/dist/inputmask/inputmask'),
+      'jquery.inputmask': _path('node_modules/jquery.inputmask/dist/inputmask/jquery.inputmask'),
+      'inputmask.numeric.extensions': _path('node_modules/jquery.inputmask/dist/inputmask/inputmask.numeric.extensions'),
       lity: 'lity',
       'lity': 'lity'
     }

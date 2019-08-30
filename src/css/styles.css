@@ -11,7 +11,7 @@ body {
 	overflow-x: hidden;
 	font-family: 'Inter', sans-serif;
 	color: black;
-	background-color: #FCFCFC;
+	background-color: #fcfcfc;
 }
 
 * {
@@ -77,6 +77,38 @@ button {
 	margin: 0 auto;
 }
 
+.container {
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+	display: none;
+}
+
+.overflow-x-wrap {
+	overflow: hidden;
+}
+
+.overflow-x-wrap .scroll-wrap {
+	padding-bottom: 20px;
+	padding-right: 20px;
+	box-sizing: content-box;
+	overflow-x: auto;
+	height: 100%;
+}
+
+.map .overflow-x-wrap {
+	top: -20px;
+	left: -20px;
+}
+
+.map .overflow-x-wrap .scroll-wrap {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
@@ -121,7 +153,7 @@ a.x-decorated:hover {
 }
 
 .main-site-link {
-	background-color: #DFDFDF;
+	background-color: #e5e5e5;
 	background-image: url("../img/header-link.svg");
 	background-position: top center;
 	background-size: auto 100%;
@@ -164,7 +196,7 @@ header {
 	flex-direction: row;
 	height: 70px;
 	width: 100%;
-	background-color: #FCFCFC;
+	background-color: #fcfcfc;
 	z-index: 100;
 }
 
@@ -201,7 +233,7 @@ header .btn {
 }
 
 .first-screen {
-	background-color: #FFCF11;
+	background-color: #ffcf11;
 }
 
 .first-screen .container {
@@ -229,6 +261,7 @@ header .btn {
 	line-height: 58px;
 	margin: 0 0 30px;
 	color: #262626;
+	letter-spacing: -1px
 }
 
 .first-screen p {
@@ -303,7 +336,8 @@ header .btn {
 }
 
 .map .container {
-	padding: 165px 0 138px 31px;
+	padding: 165px 0 0 31px;
+	margin-bottom: -40px;
 }
 
 .map .x-bg {
@@ -338,6 +372,7 @@ header .btn {
 .achievements-on-map {
 	display: flex;
 	margin-bottom: 165px;
+	transition: all .3s;
 }
 
 .achievement-description-wrap {
@@ -403,7 +438,7 @@ header .btn {
 	height: 461px;
 	margin: 0 auto;
 	border-radius: 4px;
-	background-color: #F6E049;
+	background-color: #f6e049;
 	background-image: url("../img/video-thumb.jpg");
 	background-size: 100% 100%;
 	background-position: center;
@@ -454,6 +489,10 @@ header .btn {
 	color: black;
 }
 
+.risks-tabs-variants {
+	transition: all .4s;
+}
+
 .risks-tabs-variants ul {
 	display: inline-flex;
 	padding-left: 0;
@@ -472,18 +511,28 @@ header .btn {
 	margin-bottom: 36px;
 }
 
+.tabs-moving-border {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: black;
+	transition: all .4s;
+}
+
 .risks-slider .x-tabs-line .x-tabs-wrap {
 	display: inline-flex;
 }
 
 .risks-slider .x-tabs-line .x-tabs-elem.x-active {
 	color: black;
-	border-bottom: 2px solid black;
 }
 
 .risks-slider .x-tabs-line .x-tabs-elem {
 	margin-right: 32px;
 	padding: 18px 0;
+	transition: all .3s;
 }
 
 .risks-slider .x-tabs-line .x-tabs-elem:hover {
@@ -531,6 +580,10 @@ header .btn {
 	letter-spacing: -0.36px;
 	color: #262626;
 	margin-bottom: 20px;
+}
+
+.same-risks-variants {
+	transition: all .4s;
 }
 
 .same-risks-variants .x-title {
@@ -695,6 +748,7 @@ header .btn {
 }
 
 .main-info .x-part-second h3 {
+	margin-top: 30px;
 	margin-bottom: 20px;
 	font-size: 24px;
 	font-weight: 600;
@@ -808,12 +862,14 @@ header .btn {
 
 .investing-form .x-form-wrap {
 	width: 950px;
+	max-height: 1000px;
 	padding: 70px 196px 65px;
 	margin: 0 auto;
 	border-radius: 4px;
 	box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.07);
 	background-color: #ffffff;
 	text-align: center;
+	transition: all .6s;
 }
 
 .investing-form .x-form-title {
@@ -840,6 +896,7 @@ header .btn {
 	border-radius: 30px;
 	border: solid 2px #dedede;
 	background-color: #ffffff;
+	box-shadow: none;
 	font-family: inherit;
 	outline: none;
 	padding: 13px 30px;
@@ -869,9 +926,51 @@ header .btn {
 
 .investing-form .x-sum-slider-wrap {
 	position: absolute;
-	top: 513px;
+	top: 450px;
 	text-align: left;
-	width: calc(100% - 392px);
+	width: 100%;
+}
+
+.x-form-wrap .x-main-elements-wrap {
+	opacity: 1;
+	max-height: 1000px;
+	transition: all .3s;
+}
+
+.x-form-wrap .x-loading-animation {
+	opacity: 0;
+	height: 89px !important;
+	margin-bottom: 15px;
+	transition: all .3s;
+}
+
+.x-form-wrap .x-loading-animation lottie-player {
+	width: 89px !important;
+	height: 89px !important;
+}
+
+.x-loading-wrap {
+	opacity: 0;
+	max-height: 0;
+	transition: all .3s;
+}
+
+.x-loading-text {
+	opacity: 0;
+	transition: all .3s;
+}
+
+.x-loading-wrap .x-title {
+	font-size: 42px;
+	text-align: left;
+	font-weight: 600;
+	margin-bottom: 30px;
+}
+
+.x-loading-wrap .x-description {
+	font-size: 18px;
+	text-align: left;
+	line-height: 1.4;
 }
 
 .investing-form .x-sum-slider-wrap .x-title {
@@ -898,6 +997,7 @@ header .btn {
 	height: 20px !important;
 	cursor: pointer;
 	margin-bottom: 15px;
+	border: none !important;
 }
 
 .form-slider span {
@@ -925,6 +1025,7 @@ header .btn {
 
 .form-slider .ui-slider-range {
 	background: #ffdf11;
+	border-radius: 100px;
 }
 
 footer {
@@ -965,3 +1066,19 @@ footer .x-phone {
 footer .x-second .x-second {
 	text-align: right;
 }
+
+.x-social-links {
+	display: inline-flex;
+}
+
+.x-social-links a {
+	width: 24px;
+	height: 24px;
+	margin-right: 15px;
+	background-size: 24px;
+}
+
+.x-social-links a.x-vk { background-image: url("../img/social-vk.svg") }
+.x-social-links a.x-facebook { background-image: url("../img/social-fb.svg") }
+.x-social-links a.x-instagram { background-image: url("../img/social-inst.svg") }
+.x-social-links a.x-youtube { background-image: url("../img/social-youtube.svg") }

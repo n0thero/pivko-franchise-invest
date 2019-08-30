@@ -2,22 +2,24 @@ import './../index.html';
 import './../css/styles.css';
 import './../css/styles-resp.css';
 import './../../node_modules/lity/dist/lity.min.css';
+import 'jquery.inputmask';
+import 'inputmask.numeric.extensions';
 import $ from 'jquery';
 import lity from 'lity';
 
 require('webpack-jquery-ui/slider');
 require('webpack-jquery-ui/css');
-// require('jquery-ui-touch-punch');
 
 window.isMobile = false;
 
-setTimeout(console.clear, 500);
+// setTimeout(console.clear, 500);
 
 $('#toggle-overlay')
     .click(() => $('#overlay').toggle());
 
 $(document)
     .ready(() => {
+      maskPhoneInput();
       handleHeader();
       handleFixedSidebar();
       initInvestmentsSlider();
@@ -61,14 +63,146 @@ $('.investing-form form').submit((e) => {
 });
 
 $('.x-tabs-elem').click((e) => {
-  $('.x-tabs-elem').removeClass('x-active');
-  $(e.target).addClass('x-active');
+  changeRisksTab(e.target);
 });
 
 $('.show-more-main-info').click((e) => {
-  $(e.target).remove();
-  $('.fixed-sidebar .x-body').removeClass('desktop-only');
+  showMoreMainInfo(e.target);
 });
+
+$('form').submit(() => {
+  submitForm()
+});
+
+function maskPhoneInput() {
+  $('[name="phone"]').inputmask('+7 (999) 999-99-99');
+}
+
+function changeRisksTab(tab) {
+  
+  if (window.risksSliderAnimatingNow === true) {
+    return;
+  }
+  
+  window.risksSliderAnimatingNow = true;
+  
+  $('.x-tabs-elem').removeClass('x-active');
+  $(tab).addClass('x-active');
+  
+  setTimeout(() => {
+    window.risksSliderAnimatingNow = false;
+  }, 600);
+  
+  let $risksTabsVariants = $('.risks-tabs-variants'),
+      $sameRisksVariants = $('.same-risks-variants'),
+      $movingBorder = $('.tabs-moving-border'),
+      tabIndex = getElementIndex(tab),
+      borderMovingSize;
+  
+  $risksTabsVariants.css({
+    opacity: 0,
+    right: '10px'
+  });
+  
+  $sameRisksVariants.css({
+    opacity: 0,
+    right: '10px'
+  });
+  
+  setTimeout(() => {
+    
+    $risksTabsVariants.css({
+      transitionDuration: '0s'
+    });
+    
+    $risksTabsVariants.css({
+      right: '-10px'
+    });
+    
+    $sameRisksVariants.css({
+      transitionDuration: '0s'
+    });
+    
+    $sameRisksVariants.css({
+      right: '-10px'
+    });
+    
+    $risksTabsVariants
+        .find('.x-variant')
+        .css({
+          display: 'inline-flex'
+        });
+    
+    $sameRisksVariants
+        .find('.x-elements')
+        .css({
+          display: 'inline-flex'
+        });
+    
+    switch (tabIndex) {
+      
+      case 0:
+        borderMovingSize = '0px';
+        $movingBorder.css({
+          left: borderMovingSize
+        });
+        $risksTabsVariants.find('.x-variant').eq(1).hide();
+        $risksTabsVariants.find('.x-variant').eq(2).hide();
+        $sameRisksVariants.find('.x-elements').eq(1).hide();
+        $sameRisksVariants.find('.x-elements').eq(2).hide();
+        break;
+      
+      case 1:
+        borderMovingSize = window.isMobile ? '102px' : '148px';
+        $movingBorder.css({
+          left: borderMovingSize
+        });
+        $risksTabsVariants.find('.x-variant').eq(0).hide();
+        $risksTabsVariants.find('.x-variant').eq(2).hide();
+        $sameRisksVariants.find('.x-elements').eq(0).hide();
+        $sameRisksVariants.find('.x-elements').eq(2).hide();
+        break;
+      
+      case 2:
+        borderMovingSize = window.isMobile ? '204px' : '294px';
+        $movingBorder.css({
+          left: borderMovingSize
+        });
+        $risksTabsVariants.find('.x-variant').eq(0).hide();
+        $risksTabsVariants.find('.x-variant').eq(1).hide();
+        $sameRisksVariants.find('.x-elements').eq(0).hide();
+        $sameRisksVariants.find('.x-elements').eq(1).hide();
+    }
+    
+  }, 400);
+  
+  setTimeout(() => {
+    
+    $risksTabsVariants.css({
+      transitionDuration: '0.3s'
+    });
+    
+    $risksTabsVariants.css({
+      opacity: 1,
+      right: '0px'
+    });
+    
+    $sameRisksVariants.css({
+      transitionDuration: '0.3s'
+    });
+    
+    $sameRisksVariants.css({
+      opacity: 1,
+      right: '0px'
+    });
+    
+  }, 430);
+}
+
+function showMoreMainInfo(btn) {
+  $(btn).remove();
+  $('.fixed-sidebar .x-body').removeClass('desktop-only');
+}
 
 function handleHeader() {
   
@@ -146,32 +280,26 @@ function showAchievementDescription(code, eventType) {
     top_100: {
       title: 'ТОП-100 франшиз России 2018',
       body: '7 место в рейтинге из 500 франшиз России на сайте beboss.ru',
-      paddingLeft: '63px'
     },
     awards_2018: {
       title: 'Франчайзи года и Прорыв года',
       body: 'Лучшие показатели франчайзи и самый высокий прирост за 2018 год.',
-      paddingLeft: '-7px'
     },
     cherry_silver: {
       title: 'Всероссийская франчайзинговая премия',
       body: '2 место по количеству голосов среди 10 лучших франшиз России',
-      paddingLeft: '-77px'
     },
     top_2: {
       title: 'Рейтинг франшиз России 2018',
       body: '2-е место в номинации Розничная торговля на сайте beboss.ru',
-      paddingLeft: '-147px'
     },
     awards_2017: {
       title: 'Франчайзер года и Выбор народа',
       body: 'Лучшие финансовые показатели франчайзи и первое место по количеству голосов',
-      paddingLeft: '-217px'
     },
     cherry_gold: {
       title: 'Лучший талисман франшизы на сайте beboss.ru',
       body: 'Победитель премии в номинации Лучший талисман франшизы и 38 место в топ-100 франшиз России',
-      paddingLeft: '-287px'
     }
   };
   
@@ -194,18 +322,12 @@ function showAchievementDescription(code, eventType) {
     opacity: 1,
     top: standardTopPosition
   });
-  
-  if (window.isMobile && eventType === 'click') {
-    $(blocks.ul[0]).css({
-      'left': texts[code].paddingLeft
-    });
-  }
 }
 
 function hideAchievementDescription() {
   
   if (window.isMobile) return;
-
+  
   let standardTopPosition = window.isMobile
       ? '522px'
       : '585px';
@@ -267,19 +389,16 @@ function handleFixedSidebar() {
       left: 0,
       top: 0
     });
-    
   }
 }
 
 function initInvestmentsSlider() {
-  
   let $formSlider = $('.form-slider'),
       $investmentsDisplayValue = $('.investments-value'),
       $input = $('input[name = "sum"]');
   
-  // $formSlider.draggable();
-  
   $formSlider.slider({
+    animate: "slow",
     range: "min",
     value: 5420000,
     min: 1000000,
@@ -290,4 +409,61 @@ function initInvestmentsSlider() {
       $input.val(localizedSum);
     }
   });
+}
+
+function getElementIndex(node) {
+  
+  let index = 0;
+  
+  while ((node = node.previousElementSibling)) {
+    index++;
+  }
+  return index;
+}
+
+function submitForm() {
+  let loadingAnimation =
+      '<lottie-player \n' +
+      '    src="https://assets7.lottiefiles.com/packages/lf20_Xo5Ikn.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"    autoplay >\n' +
+      '</lottie-player>';
+  
+  let $blocks = {
+    form: $('.x-form-wrap'),
+    loadingWrap: $('.x-loading-wrap'),
+    loadingAnimation: $('.x-loading-animation'),
+    loadingTextWrap: $('.x-loading-text'),
+    mainElements: $('.x-form-wrap .x-main-elements-wrap'),
+    animation: $('.x-form-wrap .x-loading-animation')
+  };
+  
+  $blocks.form.css({
+    maxHeight: '415px'
+  });
+  
+  $blocks.mainElements.css({
+    opacity: 0,
+    maxHeight: 0
+  });
+  
+  $blocks.loadingWrap.css({
+    opacity: 1,
+    maxHeight: '415px'
+  });
+  
+  setTimeout(() => {
+    
+    $blocks.loadingAnimation.html(loadingAnimation);
+    
+    $blocks.loadingAnimation.css({
+      opacity: 1,
+    });
+  
+    setTimeout(() => {
+      $blocks.loadingTextWrap.css({
+        opacity: 1,
+      });
+    }, 5000);
+    
+  }, 300);
+  
 }

@@ -11,10 +11,6 @@
 	.container {
 		min-width: 1220px;
 		max-width: 1220px;
-		overflow-x: hidden !important;
-	}
-	
-	.map {
 		overflow-x: hidden;
 	}
 	
@@ -29,6 +25,9 @@
 	.risks-slider .x-variant .x-tab-body {
 		width: auto;
 	}
+}
+
+@media screen and (max-width: 768px) {
 	
 	.desktop-only {
 		display: none;
@@ -37,9 +36,6 @@
 	.mobile-only {
 		display: block;
 	}
-}
-
-@media screen and (max-width: 768px) {
 	
 	body {
 		min-width: 320px;
@@ -50,7 +46,7 @@
 	.container {
 		min-width: 320px;
 		max-width: 320px;
-		overflow-x: hidden !important;
+		overflow-x: hidden;
 	}
 	
 	.main-site-link {
@@ -145,7 +141,6 @@
 	
 	.first-screen .container {
 		min-height: auto;
-		/*overflow: visible;*/
 		justify-content: start;
 		padding: 57px 15px 84px;
 	}
@@ -223,6 +218,11 @@
 		margin-bottom: 45px;
 	}
 	
+	.map {
+		overflow: hidden;
+		height: 700px;
+	}
+	
 	.map .x-props-inline {
 		font-size: 18px;
 		line-height: 1.5;
@@ -242,8 +242,8 @@
 		text-align: left;
 		margin-bottom: 165px;
 		padding-left: 63px;
-		width: 700px;
-		max-width: 700px;
+		width: 510px;
+		max-width: 510px;
 		padding-top: 8px;
 	}
 	
@@ -253,16 +253,30 @@
 	}
 	
 	.achievement-description-wrap {
+		width: 290px;
 		top: 522px;
+		left: 15px;
 		text-align: left;
 		padding: 15px;
+		font-size: 14px;
 	}
 	
 	.map .container {
 		min-width: 320px;
 		max-width: 320px;
-		/*overflow-x: visible !important;*/
-		padding: 14px 0 30px 0;
+		padding: 14px 0 0 0;
+		margin-bottom: -20px;
+	}
+	
+	.map .overflow-x-wrap {
+		top: 0;
+		left: 0;
+		height: 258px;
+	}
+	
+	.map .overflow-x-wrap .scroll-wrap {
+		padding-top: 0;
+		padding-left: 0;
 	}
 	
 	.map .x-bg {
@@ -312,10 +326,6 @@
 		padding-left: 0;
 	}
 	
-	.risks .container {
-		/*overflow: visible !important;*/
-	}
-	
 	.risks h2 {
 		font-size: 24px;
 		font-weight: 600;
@@ -336,6 +346,10 @@
 	
 	.risks-slider .x-tabs-line {
 		margin-bottom: 20px;
+	}
+	
+	.risks-slider .overflow-x-wrap {
+		height: 228px;
 	}
 	
 	.risks-slider .x-tabs-line .btn {
@@ -393,6 +407,10 @@
 	
 	.same-risks-variants {
 		padding-left: 15px;
+	}
+	
+	.same-risks-variants .overflow-x-wrap {
+		height: 307px;
 	}
 	
 	.same-risks-variants .x-title {
@@ -463,7 +481,7 @@
 	.main-info .fixed-sidebar-wrap {
 		margin-right: 0;
 	}
-
+	
 	.fixed-sidebar .x-body {
 		text-align: left;
 		padding-bottom: 20px;
@@ -482,6 +500,7 @@
 	}
 	
 	.show-more-main-info {
+		cursor: pointer;
 		margin-bottom: 40px;
 	}
 	
@@ -504,7 +523,7 @@
 		font-size: 18px;
 		line-height: 1.1;
 	}
-
+	
 	.main-info .x-part-first p,
 	.main-info .x-part-second p {
 		font-size: 14px;
@@ -559,7 +578,10 @@
 	
 	.already-invested .container {
 		padding: 0 10px;
-		/*overflow: visible !important;*/
+	}
+	
+	.already-invested .overflow-x-wrap {
+		height: 430px;
 	}
 	
 	.already-invested .link-to-form {
@@ -626,9 +648,33 @@
 		font-size: 24px;
 	}
 	
+	.investing-form .x-sum-slider-wrap {
+		width: 100%;
+		top: 420px;
+	}
+	
+	.investing-form .x-sum-slider-wrap .x-title {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.28px;
+	}
+	
+	.investing-form .x-sum-slider-wrap .x-sum {
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.48px;
+	}
+	
 	.investing-form .x-form-subheader {
 		font-size: 15px;
 		margin-bottom: 30px;
+	}
+	
+	.investing-form .x-submit {
+		margin-top: 180px;
+		width: 100%;
 	}
 	
 	footer {
@@ -657,12 +703,25 @@
 		text-align: center;
 	}
 	
+	footer .x-email {
+		margin-bottom: 40px;
+	}
+	
 	footer .x-main-site-link {
 		margin-bottom: 23px;
 	}
 	
-	.investing-form .x-sum-slider-wrap {
-		top: 451px;
-		width: calc(100% - 32px);
+	.x-loading-wrap .x-title {
+		font-size: 24px;
+		margin-bottom: 15px;
+	}
+	
+	.x-form-wrap .x-loading-animation {
+		height: 60px !important;
+	}
+	
+	.x-form-wrap .x-loading-animation lottie-player {
+		width: 60px !important;
+		height: 60px !important;
 	}
 }
