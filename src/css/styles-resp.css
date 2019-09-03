@@ -265,7 +265,7 @@
 	.achievement-description-wrap {
 		width: 290px;
 		top: 522px;
-		left: 15px;
+		left: 15px !important;
 		text-align: left;
 		padding: 15px;
 		font-size: 14px;
@@ -305,7 +305,6 @@
 	
 	.franchise-invest .container {
 		max-width: 360px;
-		
 	}
 	
 	.franchise-invest br {
@@ -758,10 +757,6 @@
 		max-width: calc(100% - 20px);
 	}
 	
-	.first-screen .x-bg {
-		right: -20px;
-	}
-	
 	.main-props {
 		max-width: calc(100% - 20px);
 	}
@@ -822,4 +817,15 @@
 	.achievement-description-wrap {
 		left: 35px;
 	}
+	
+	.franchise-invest .container {
+		max-width: 100%;
+	}
+	
+	.franchise-invest h2,
+	.franchise-invest p {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
 }
