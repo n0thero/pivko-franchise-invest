@@ -27,7 +27,7 @@
 	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 650px) {
 	
 	.desktop-only {
 		display: none;
@@ -223,6 +223,16 @@
 		height: 700px;
 	}
 	
+	.map .container {
+		max-width: 100%;
+	}
+	
+	.map .container > .x-title,
+	.map .x-props-inline,
+	.map .achievements-title {
+		padding: 0 10px;
+	}
+	
 	.map .x-props-inline {
 		font-size: 18px;
 		line-height: 1.5;
@@ -291,6 +301,15 @@
 	
 	.franchise-invest {
 		padding-top: 25px;
+	}
+	
+	.franchise-invest .container {
+		max-width: 360px;
+		
+	}
+	
+	.franchise-invest br {
+		display: none;
 	}
 	
 	.franchise-invest h2 {
@@ -469,6 +488,7 @@
 	
 	.main-info .fixed-sidebar-wrap {
 		text-align: center;
+		width: 100%;
 	}
 	
 	.main-info .fixed-sidebar-wrap h2 {
@@ -577,7 +597,7 @@
 	}
 	
 	.already-invested .container {
-		padding: 0 10px;
+		padding: 0;
 	}
 	
 	.already-invested .overflow-x-wrap {
@@ -597,6 +617,8 @@
 	.already-invested .x-elements {
 		margin-top: 0;
 		min-width: 826px;
+		padding-left: 10px;
+		padding-right: 20px;
 	}
 	
 	.already-invested .x-element {
@@ -639,7 +661,7 @@
 	
 	.investing-form .x-form-wrap {
 		width: 100%;
-		max-width: 320px;
+		max-width: calc(100% - 40px);
 		padding: 18px 15px 15px;
 		background-color: transparent;
 	}
@@ -723,5 +745,81 @@
 	.x-form-wrap .x-loading-animation lottie-player {
 		width: 60px !important;
 		height: 60px !important;
+	}
+	
+	.is-not-a-offer div {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	
+	.container {
+		max-width: calc(100% - 20px);
+	}
+	
+	.first-screen .x-bg {
+		right: -20px;
+	}
+	
+	.main-props {
+		max-width: calc(100% - 20px);
+	}
+	
+	.main-props .container {
+		max-width: calc(100% - 20px);
+	}
+	
+	.map .container {
+		max-width: 100%;
+	}
+	
+	.risks .container {
+		max-width: 100%;
+		width: 100%;
+		margin: 0;
+	}
+	
+	.risks .container > p br {
+		display: none;
+	}
+	
+	.risks .container > h2,
+	.risks .container > p {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	.risks-slider {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.risks-slider .x-tabs-line {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	.risks-tabs-variants ul {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	.same-risks-variants {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.same-risks-variants > .x-title {
+		padding-left: 20px;
+	}
+	
+	.same-risks-variants .x-elements {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	.achievement-description-wrap {
+		left: 35px;
 	}
 }

@@ -12,19 +12,20 @@ require('webpack-jquery-ui/css');
 
 window.isMobile = false;
 
-// setTimeout(console.clear, 500);
-
 $('#toggle-overlay')
     .click(() => $('#overlay').toggle());
 
 $(document)
     .ready(() => {
+      window.isMobile = window.innerWidth <= 768;
       maskPhoneInput();
+      showAchievementDescription();
       handleHeader();
       handleFixedSidebar();
       initInvestmentsSlider();
     })
     .scroll(() => {
+      window.isMobile = window.innerWidth <= 768;
       handleHeader();
       handleFixedSidebar();
     });
@@ -210,8 +211,6 @@ function handleHeader() {
       linkToMainSiteHeight = $('.main-site-link').innerHeight(),
       scrollTop = document.documentElement.scrollTop;
   
-  window.isMobile = window.innerWidth <= 768;
-  
   $header
       .addClass('x-in-scroll');
   
@@ -272,6 +271,10 @@ function scrollToForm() {
 
 function showAchievementDescription(code, eventType) {
   
+  if (typeof code === 'undefined') {
+    code = 'top_100';
+  }
+  
   if (window.hideAchievementDescriptiontTimeout !== undefined) {
     clearTimeout(window.hideAchievementDescriptiontTimeout);
   }
@@ -307,6 +310,8 @@ function showAchievementDescription(code, eventType) {
       ? '532px'
       : '595px';
   
+  let standardBottomPosition = '45px';
+  
   let blocks = {
     wrap: $('.achievement-description-wrap'),
     ul: $('.achievements-on-map')
@@ -318,10 +323,26 @@ function showAchievementDescription(code, eventType) {
   $(blocks.title).html(texts[code].title);
   $(blocks.body).html(texts[code].body);
   
-  $(blocks.wrap).css({
-    opacity: 1,
-    top: standardTopPosition
-  });
+  if (window.isMobile) {
+    
+    $(blocks.wrap).css({
+      top: 'auto'
+    });
+    
+    $(blocks.wrap).css({
+      opacity: 1,
+      bottom: standardBottomPosition
+    });
+    
+  } else {
+    
+    $(blocks.wrap).css({
+      opacity: 1,
+      top: standardTopPosition
+    });
+    
+  }
+  
 }
 
 function hideAchievementDescription() {
@@ -332,16 +353,32 @@ function hideAchievementDescription() {
       ? '522px'
       : '585px';
   
+  let standardBottomPosition = '25px';
+  
   if (window.hideAchievementDescriptiontTimeout !== undefined) {
     clearTimeout(window.hideAchievementDescriptiontTimeout);
   }
   
-  window.hideAchievementDescriptiontTimeout = setTimeout(() => {
-    $('.achievement-description-wrap').css({
-      opacity: 0,
-      top: standardTopPosition
-    });
-  }, 500);
+  if (window.isMobile) {
+  
+    window.hideAchievementDescriptiontTimeout = setTimeout(() => {
+      $('.achievement-description-wrap').css({
+        opacity: 0,
+        bottom: standardBottomPosition,
+        top: 'auto'
+      });
+    }, 500);
+    
+  } else {
+    
+    window.hideAchievementDescriptiontTimeout = setTimeout(() => {
+      $('.achievement-description-wrap').css({
+        opacity: 0,
+        top: standardTopPosition
+      });
+    }, 500);
+    
+  }
 }
 
 function handleFixedSidebar() {

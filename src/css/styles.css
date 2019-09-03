@@ -1082,3 +1082,26 @@ footer .x-second .x-second {
 .x-social-links a.x-facebook { background-image: url("../img/social-fb.svg") }
 .x-social-links a.x-instagram { background-image: url("../img/social-inst.svg") }
 .x-social-links a.x-youtube { background-image: url("../img/social-youtube.svg") }
+
+.is-not-a-offer {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	height: 50px;
+	background: #F0F0F0;
+}
+
+.is-not-a-offer div {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 138%;
+	letter-spacing: -0.02em;
+	color: #979797;
+}
+
+.x-hack {
+	height: 100%;
+	color: transparent;
+}
