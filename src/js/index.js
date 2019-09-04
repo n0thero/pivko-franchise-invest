@@ -10,14 +10,61 @@ import lity from 'lity';
 require('webpack-jquery-ui/slider');
 require('webpack-jquery-ui/css');
 
-window.isMobile = false;
-
-$('#toggle-overlay')
-    .click(() => $('#overlay').toggle());
 
 $(document)
     .ready(() => {
+      
+      $('#toggle-overlay')
+          .click(() => $('#overlay').toggle());
+      
       window.isMobile = window.innerWidth <= +768;
+      
+      $('.main-site-link')
+          .click((e) => {
+            if ($(e.target).is('a')) return null;
+            window.open('//pivko24.ru')
+          });
+      
+      $('.scroll-to-form')
+          .click(() => scrollToForm());
+      
+      $('.achievement-element')
+          .click((e) => {
+            
+            let achievementCode = $(e.target).is('img')
+                ? $(e.target).parent('div').attr('data-achievement-code')
+                : $(e.target).attr('data-achievement-code');
+            
+            showAchievementDescription(achievementCode, e.type);
+          })
+          .mouseenter((e) => {
+            
+            let achievementCode = $(e.target).is('img')
+                ? $(e.target).parent('div').attr('data-achievement-code')
+                : $(e.target).attr('data-achievement-code');
+            
+            showAchievementDescription(achievementCode, e.type);
+          })
+          .mouseout(() => hideAchievementDescription())
+          .mouseleave(() => hideAchievementDescription());
+      
+      $('.investing-form form').submit((e) => {
+        e.preventDefault();
+      });
+      
+      $('.x-tabs-elem').click((e) => {
+        changeRisksTab(e.target);
+      });
+      
+      $('.show-more-main-info').click((e) => {
+        showMoreMainInfo(e.target);
+      });
+      
+      $('form').submit((e) => {
+        e.preventDefault();
+        submitForm();
+      });
+      
       maskPhoneInput();
       showAchievementDescription();
       handleHeader();
@@ -35,52 +82,6 @@ $(window)
     .resize(() => {
       reposAchievementWrap();
     });
-
-$('.main-site-link')
-    .click((e) => {
-      if ($(e.target).is('a')) return null;
-      window.open('//pivko24.ru')
-    });
-
-$('.scroll-to-form')
-    .click(() => scrollToForm());
-
-$('.achievement-element')
-    .click((e) => {
-      
-      let achievementCode = $(e.target).is('img')
-          ? $(e.target).parent('div').attr('data-achievement-code')
-          : $(e.target).attr('data-achievement-code');
-      
-      showAchievementDescription(achievementCode, e.type);
-    })
-    .mouseenter((e) => {
-      
-      let achievementCode = $(e.target).is('img')
-          ? $(e.target).parent('div').attr('data-achievement-code')
-          : $(e.target).attr('data-achievement-code');
-      
-      showAchievementDescription(achievementCode, e.type);
-    })
-    .mouseout(() => hideAchievementDescription())
-    .mouseleave(() => hideAchievementDescription());
-
-$('.investing-form form').submit((e) => {
-  e.preventDefault();
-});
-
-$('.x-tabs-elem').click((e) => {
-  changeRisksTab(e.target);
-});
-
-$('.show-more-main-info').click((e) => {
-  showMoreMainInfo(e.target);
-});
-
-$('form').submit((e) => {
-  e.preventDefault();
-  submitForm();
-});
 
 function maskPhoneInput() {
   $('[name="phone"]').inputmask('+7 (999) 999-99-99');
@@ -505,7 +506,7 @@ function submitForm() {
   
   setTimeout(() => {
     let sectionHeight = $blocks.section.innerHeight();
-  
+    
     $blocks.section.css({
       minHeight: sectionHeight + 100
     });
@@ -522,7 +523,7 @@ function submitForm() {
       $blocks.loadingAnimation.css({
         opacity: 0
       });
-  
+      
       setTimeout(() => {
         
         $blocks.loadingAnimation
@@ -538,7 +539,6 @@ function submitForm() {
     }
   });
   
-
   
   setTimeout(() => {
     
