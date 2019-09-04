@@ -939,8 +939,14 @@ header .btn {
 .x-form-wrap .x-loading-animation {
 	opacity: 0;
 	height: 89px !important;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
 	margin-bottom: 15px;
 	transition: all .3s;
+}
+
+.x-form-wrap .x-loading-animation.x-success {
+	background-image: url("../img/form_success.svg");
 }
 
 .x-form-wrap .x-loading-animation lottie-player {

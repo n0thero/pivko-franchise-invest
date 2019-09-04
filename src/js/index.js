@@ -23,11 +23,17 @@ $(document)
       handleHeader();
       handleFixedSidebar();
       initInvestmentsSlider();
+      reposAchievementWrap();
     })
     .scroll(() => {
       window.isMobile = window.innerWidth <= +768;
       handleHeader();
       handleFixedSidebar();
+    });
+
+$(window)
+    .resize(() => {
+      reposAchievementWrap();
     });
 
 $('.main-site-link')
@@ -71,8 +77,9 @@ $('.show-more-main-info').click((e) => {
   showMoreMainInfo(e.target);
 });
 
-$('form').submit(() => {
-  submitForm()
+$('form').submit((e) => {
+  e.preventDefault();
+  submitForm();
 });
 
 function maskPhoneInput() {
@@ -210,17 +217,17 @@ function handleHeader() {
   let $header = $('header'),
       linkToMainSiteHeight = $('.main-site-link').innerHeight(),
       scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
-
+  
   $header
       .addClass('x-in-scroll');
-
+  
   if (scrollTop > linkToMainSiteHeight) {
     $header.css({top: 0});
   } else {
     $header.css({
       top: linkToMainSiteHeight - scrollTop
     });
-
+    
     if (scrollTop === 0) {
       $header
           .removeClass('x-in-scroll')
@@ -360,7 +367,7 @@ function hideAchievementDescription() {
   }
   
   if (window.isMobile) {
-  
+    
     window.hideAchievementDescriptiontTimeout = setTimeout(() => {
       $('.achievement-description-wrap').css({
         opacity: 0,
@@ -459,12 +466,14 @@ function getElementIndex(node) {
 }
 
 function submitForm() {
+  
   let loadingAnimation =
       '<lottie-player \n' +
       '    src="https://assets7.lottiefiles.com/packages/lf20_Xo5Ikn.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"    autoplay >\n' +
       '</lottie-player>';
   
   let $blocks = {
+    section: $('.investing-form'),
     form: $('.x-form-wrap'),
     loadingWrap: $('.x-loading-wrap'),
     loadingAnimation: $('.x-loading-animation'),
@@ -472,6 +481,7 @@ function submitForm() {
     mainElements: $('.x-form-wrap .x-main-elements-wrap'),
     animation: $('.x-form-wrap .x-loading-animation')
   };
+  
   
   $blocks.form.css({
     maxHeight: '415px'
@@ -487,6 +497,49 @@ function submitForm() {
     maxHeight: '415px'
   });
   
+  $blocks.loadingAnimation.html(loadingAnimation);
+  
+  $blocks.loadingAnimation.css({
+    opacity: 1,
+  });
+  
+  setTimeout(() => {
+    let sectionHeight = $blocks.section.innerHeight();
+  
+    $blocks.section.css({
+      minHeight: sectionHeight + 100
+    });
+  }, 400);
+  
+  $.ajax({
+    url: '/some-url',
+    data: $('#invest-form').serialize(),
+    complete: () => {
+      
+      // При привязке формы переписать в зависимости от данных,
+      // приходящих в ответе сервера.
+      
+      $blocks.loadingAnimation.css({
+        opacity: 0
+      });
+  
+      setTimeout(() => {
+        
+        $blocks.loadingAnimation
+            .html('')
+            .addClass('x-success')
+            .css({opacity: 1});
+        
+        $blocks.loadingTextWrap.css({
+          opacity: 1,
+        });
+        
+      }, 2000);
+    }
+  });
+  
+
+  
   setTimeout(() => {
     
     $blocks.loadingAnimation.html(loadingAnimation);
@@ -494,7 +547,7 @@ function submitForm() {
     $blocks.loadingAnimation.css({
       opacity: 1,
     });
-  
+    
     setTimeout(() => {
       $blocks.loadingTextWrap.css({
         opacity: 1,
@@ -505,3 +558,20 @@ function submitForm() {
   
 }
 
+function reposAchievementWrap() {
+  
+  if (window.isMobile === false) return;
+  
+  let $block = $('.achievement-description-wrap');
+  let marginLeftValue = Math.trunc((window.innerWidth - +$block.innerWidth()) / 2);
+  
+  $('body')
+      .append('' +
+          '<style>' +
+          '.achievement-description-wrap.x-repositioned {' +
+          'left: ' + marginLeftValue + 'px !important' +
+          '}' +
+          '</style>');
+  
+  $block.addClass('x-repositioned');
+}
