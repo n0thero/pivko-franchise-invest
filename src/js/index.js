@@ -208,7 +208,7 @@ function showMoreMainInfo(btn) {
 function handleHeader() {
   
   let $header = $('header'),
-      linkToMainSiteHeight = 60,
+      linkToMainSiteHeight = $('.main-site-link').innerHeight()
       scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
 
   $header
