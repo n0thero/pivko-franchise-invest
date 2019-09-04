@@ -15,7 +15,7 @@ function _path(p) {
 
 module.exports = {
   
-  mode: "production",
+  mode: "development",
   entry: {
     app: './src/js/index.js'
   },

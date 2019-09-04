@@ -9,13 +9,17 @@
 	}
 	
 	.container {
-		min-width: 1220px;
+		min-width: 100%;
 		max-width: 1220px;
 		overflow-x: hidden;
 	}
 	
 	.first-screen .container {
 		overflow-x: hidden;
+	}
+	
+	header .container {
+		min-width: 1200px;
 	}
 	
 	.risks {
