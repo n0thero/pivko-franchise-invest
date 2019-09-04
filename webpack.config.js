@@ -2,13 +2,20 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
+let todayDate = new Date();
+let dateDay = String(todayDate.getDate()).padStart(2, '0');
+let dateMonth = String(todayDate.getMonth() + 1).padStart(2, '0');
+let dateHours = String(todayDate.getHours()).padStart(2, '0');
+let dateMinutes = String(todayDate.getMinutes()).padStart(2, '0');
+let todayString = dateMonth + "-" + dateDay + "-" + dateHours + "-" + dateMinutes;
+
 function _path(p) {
   return path.join(__dirname, p);
 }
 
 module.exports = {
   
-  mode: "development",
+  mode: "production",
   entry: {
     app: './src/js/index.js'
   },
@@ -32,7 +39,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  "useBuiltIns": "entry"
+                }
+              ]
+            ]
           }
         }
       },
@@ -63,11 +77,11 @@ module.exports = {
     })
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name]-' + todayString + '.bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
-  resolve:{
+  resolve: {
     alias: {
       $: 'jquery',
       '$': 'jquery',
@@ -76,7 +90,7 @@ module.exports = {
       'window.jquery': 'jquery',
       'window.jQuery': 'jquery',
       'inputmask.dependencyLib': _path('node_modules/jquery.inputmask/dist/inputmask/inputmask.dependencyLib'),
-      'inputmask' : _path('node_modules/jquery.inputmask/dist/inputmask/inputmask'),
+      'inputmask': _path('node_modules/jquery.inputmask/dist/inputmask/inputmask'),
       'jquery.inputmask': _path('node_modules/jquery.inputmask/dist/inputmask/jquery.inputmask'),
       'inputmask.numeric.extensions': _path('node_modules/jquery.inputmask/dist/inputmask/inputmask.numeric.extensions'),
       lity: 'lity',

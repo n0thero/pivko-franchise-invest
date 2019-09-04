@@ -17,7 +17,7 @@ $('#toggle-overlay')
 
 $(document)
     .ready(() => {
-      window.isMobile = window.innerWidth <= 768;
+      window.isMobile = window.innerWidth <= +768;
       maskPhoneInput();
       showAchievementDescription();
       handleHeader();
@@ -25,7 +25,7 @@ $(document)
       initInvestmentsSlider();
     })
     .scroll(() => {
-      window.isMobile = window.innerWidth <= 768;
+      window.isMobile = window.innerWidth <= +768;
       handleHeader();
       handleFixedSidebar();
     });
@@ -208,19 +208,19 @@ function showMoreMainInfo(btn) {
 function handleHeader() {
   
   let $header = $('header'),
-      linkToMainSiteHeight = $('.main-site-link').innerHeight(),
-      scrollTop = document.documentElement.scrollTop;
-  
+      linkToMainSiteHeight = 60,
+      scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+
   $header
       .addClass('x-in-scroll');
-  
+
   if (scrollTop > linkToMainSiteHeight) {
     $header.css({top: 0});
   } else {
     $header.css({
       top: linkToMainSiteHeight - scrollTop
     });
-    
+
     if (scrollTop === 0) {
       $header
           .removeClass('x-in-scroll')
@@ -504,3 +504,4 @@ function submitForm() {
   }, 300);
   
 }
+
