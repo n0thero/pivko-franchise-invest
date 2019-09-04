@@ -156,11 +156,12 @@
 		justify-content: start;
 		padding: 57px 15px 84px;
 		overflow-x: visible;
+		width: 100%;
 	}
 	
 	.first-screen .x-bg {
 		top: 0;
-		right: -20px;
+		right: -10px;
 		width: 100%;
 		height: 100%;
 		background-position: 167px 47px;
